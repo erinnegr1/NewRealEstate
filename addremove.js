@@ -14,9 +14,28 @@ submitButton.addEventListener("click", function() {
   
     console.log(addressSearch + propertySearch +
         citySearch +stateSearch);
-    li.textContent = `${addressSearch}  ${propertySearch} 
-         ${citySearch}  ${stateSearch}`;
+    li.textContent = `${addressSearch},  ${propertySearch}, 
+         ${citySearch},  ${stateSearch}`;
     const ul = document.querySelector("ul");
+
+    const deleteListing = document.createElement('button');
+    deleteListing.textContent = "x";
+    deleteListing.addEventListener('click',function() {
+        this.parentElement.remove();
+    })
+    
+    const commentBtn = document.createElement('button');
+        commentBtn.innerText = "Add Comment";
+        commentBtn.addEventListener('click', function () {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder ="Add Comments"
+            input.maxLength = 280;
+            li.append(input);
+        })
+        
+        li.append(deleteListing);
+        li.append(commentBtn);
     ul.append(li);
 });
 
