@@ -29,9 +29,18 @@ submitButton.addEventListener("click", function() {
         commentBtn.addEventListener('click', function () {
             const input = document.createElement("input");
             input.type = "text";
-            input.placeholder ="Add Comments"
+            input.innerText ="Add Comments"
             input.maxLength = 280;
             li.append(input);
+
+            const saveBtn = document.createElement("button");
+                saveBtn.innerText = "Save";
+                saveBtn.addEventListener('click', () => {
+                  let savedMessage = document.createElement("ul");
+                  savedMessage = input.value;
+                  li.append(savedMessage);
+                })
+                li.append(saveBtn);
         })
         
         li.append(deleteListing);
